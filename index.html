@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AZIZ DAYA | Blog tech</title>
-<meta name="description" content="AZIZ DAYA : actualités tech, tutoriels et astuces simples pour téléphone, PC et internet.">
+<meta name="description" content="AZIZ DAYA : actualités tech, IA, argent en ligne, tutoriels et astuces simples pour téléphone, PC et internet.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Serif+4:wght@400;600&display=swap">
 <style>
@@ -19,40 +19,50 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--acc);outline-offset
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
-.brand{display:flex;align-items:center;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;flex-wrap:wrap;row-gap:4px}
 .badge{background:#d92d20;color:#fff;font-size:.7rem;font-weight:700;padding:3px 8px;border-radius:4px;line-height:1.3;white-space:nowrap}
 .badge:hover{background:#b42318}
-.brand{min-width:0;flex-wrap:wrap;row-gap:4px}
-@media (max-width:480px){.top{gap:8px}.logo{font-size:1.2rem}.badge{font-size:.58rem;padding:2px 5px;white-space:normal;max-width:96px;line-height:1.2}#theme{padding:5px 8px;font-size:.78rem;flex-shrink:0}.hero{padding:18px}.wrap{padding:0 14px}}
+@media (max-width:480px){.top{gap:8px}.logo{font-size:1.2rem}.badge{font-size:.58rem;padding:2px 5px;white-space:normal;max-width:96px;line-height:1.2}#theme{padding:5px 8px;font-size:.78rem;flex-shrink:0}.hero{padding:18px}.wrap{padding:0 14px}.row{grid-template-columns:104px 1fr}.row h3{font-size:1.1rem}}
 .logo{font-weight:700;font-size:1.5rem;letter-spacing:.02em}
 .logo i{display:inline-block;width:.55em;height:1em;background:var(--acc);margin-left:5px;vertical-align:-.12em}
 #theme{border:1px solid var(--line);background:none;color:var(--ink);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
-nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
-nav a{white-space:nowrap;padding:6px 14px;border-radius:999px;color:var(--mute);font-weight:500}
-nav a:hover{color:var(--ink)}
-nav a.on{background:var(--acc);color:var(--acc-ink)}
+nav{display:flex;flex-wrap:wrap;gap:4px 6px;padding-bottom:10px;position:relative}
+nav a,.ddbtn{white-space:nowrap;padding:6px 14px;border-radius:999px;color:var(--mute);font-weight:500}
+.ddbtn{border:0;background:none;font:inherit;font-weight:500;cursor:pointer}
+nav a:hover,.ddbtn:hover{color:var(--ink)}
+nav a.on,.ddbtn.on{background:var(--acc);color:var(--acc-ink)}
+.menu{display:none;position:absolute;left:0;top:100%;min-width:210px;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.18);padding:6px;z-index:10}
+.menu.open{display:block}
+.menu a{display:block;border-radius:8px;padding:8px 12px}
+.menu a:hover{background:var(--bg);color:var(--ink)}
 main{padding:32px 0 56px;min-height:70vh}
-.hero{display:block;background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--acc);border-radius:10px;padding:32px;margin-bottom:32px}
-.hero h1{font-size:clamp(1.8rem,5vw,3rem);line-height:1.15;margin:8px 0 12px}
-.hero p{color:var(--mute);font-size:1.1rem;max-width:60ch;margin:0 0 12px}
+.hero{display:grid;grid-template-columns:1fr 200px;gap:32px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--acc);border-radius:10px;padding:32px;margin-bottom:32px}
+.hero h1{font-size:clamp(2.2rem,7vw,3.6rem);line-height:1.05;margin:0 0 14px;letter-spacing:.01em}
+.hero p{color:var(--mute);font-size:1.05rem;max-width:56ch;margin:0 0 12px}
+.btn{display:inline-block;background:var(--acc);color:var(--acc-ink);font-weight:700;padding:9px 18px;border-radius:8px}
+.btn:hover{opacity:.9}
 .cat{color:var(--acc);font-weight:700;font-size:.9rem}
 time{color:var(--mute);font-size:.9rem}
 .cols{display:grid;grid-template-columns:1fr 280px;gap:40px}
-.row{display:block;padding:20px 0;border-bottom:1px solid var(--line)}
-.row h3{margin:4px 0;font-size:1.3rem;line-height:1.3}
+.row{display:grid;grid-template-columns:168px 1fr;gap:18px;align-items:start;padding:20px 0;border-bottom:1px solid var(--line)}
+.row h3{margin:2px 0;font-size:1.3rem;line-height:1.3}
 .row:hover h3{color:var(--acc)}
 .row p{margin:0 0 6px;color:var(--mute)}
+.row .thumb{aspect-ratio:4/3}
+.thumb{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--acc),#101828);display:grid;place-items:center;color:#fff;font-weight:700;text-align:center;padding:8px}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+article .thumb{margin:18px 0 26px}
 aside h4{margin:0 0 10px}
 aside a{display:block;padding:7px 0;border-bottom:1px solid var(--line);color:var(--mute)}
 aside a:hover{color:var(--acc)}
 .ad{margin-top:28px;border:1px dashed var(--line);border-radius:10px;min-height:250px;display:grid;place-items:center;color:var(--mute);font-size:.85rem;text-align:center;padding:10px}
-.rail{display:flex;flex-direction:column;gap:28px}
-.profile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px}
+.ad-inline{margin:1.8em auto;max-width:320px;min-height:90px;border:1px dashed var(--line);border-radius:8px;display:grid;place-items:center;color:var(--mute);font:.75rem "Space Grotesk",sans-serif;text-align:center;padding:6px}
 .photo{position:relative;aspect-ratio:3/4;background:var(--line);border-radius:8px;overflow:hidden;display:grid;place-items:center;color:var(--mute);font-size:.85rem;text-align:center}
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.photo.about{max-width:260px;margin-bottom:24px}
-.profile h4{margin:12px 0 2px;font-size:1.1rem}
-.profile p{margin:0;color:var(--mute);font-size:.92rem}
+.subs{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 8px}
+.subs a{border:1px solid var(--line);border-radius:999px;padding:4px 14px;color:var(--mute);background:var(--surface)}
+.subs a:hover{color:var(--ink)}
+.subs a.on{background:var(--acc);border-color:var(--acc);color:var(--acc-ink)}
 article{max-width:700px;margin:0 auto}
 article h1{font-size:clamp(1.9rem,5vw,2.8rem);line-height:1.15;margin:8px 0}
 .prose{font-family:"Source Serif 4",Georgia,serif;font-size:1.15rem;line-height:1.8}
@@ -63,7 +73,8 @@ h2.t{margin:0 0 4px}
 footer{border-top:1px solid var(--line);background:var(--surface);padding:28px 0;color:var(--mute);font-size:.95rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
 footer a:hover{color:var(--acc)}
-@media (max-width:820px){.cols{grid-template-columns:1fr;gap:24px}.rail{display:contents}.profile{order:-1;display:flex;gap:14px;align-items:center}.profile .photo{width:104px;flex-shrink:0}.profile .txt{min-width:0}.profile h4{margin-top:0}.hero{padding:22px}}
+@media (max-width:820px){.cols{grid-template-columns:1fr;gap:24px}.hero{padding:22px}}
+@media (max-width:600px){.hero{grid-template-columns:1fr;gap:18px}.hero .photo{order:-1;width:140px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -91,21 +102,19 @@ footer a:hover{color:var(--acc)}
    juste en dessous du dernier (avec une virgule entre les deux)
    et change : slug, titre, cat, date, resume, contenu.
    - slug : sans espace ni accent (ex: "installer-whatsapp")
-   - cat  : Tech, Tutoriels, Astuces, Bons plans ou Divers
+   - cat  : Tech, IA, Argent en ligne, Tutoriels, Astuces,
+            Bons plans ou Divers
+   - sub  : UNIQUEMENT si cat est "Divers" : Cuisine, Actualité,
+            Finance personnelle, Religion, Santé ou Sport
+            (ajoute la ligne  sub: "Cuisine",  sous cat)
    - date : AAAA-MM-JJ
+   - MINIATURE : mets une image nommée comme le slug dans le
+     dossier "images" (ex: images/installer-whatsapp.jpg).
+     Sans image, un fond bleu avec la catégorie s'affiche.
+   - Les articles "Divers" n'apparaissent jamais dans
+     "Derniers articles" de l'accueil.
    ============================================================ */
 const ARTICLES = [
-  {
-    slug: "aziz-daya",
-    titre: "AZIZ DAYA",
-    cat: "Divers",
-    date: "2026-10-17",
-    resume: "Ce que tu vas trouver ici : de la tech expliquée simplement, des tutoriels et des astuces utiles.",
-    contenu: `<p>Sur AZIZ DAYA, on parle surtout de tech : smartphones, applications, internet, intelligence artificielle.</p>
-    <h2>Ce que tu vas trouver</h2>
-    <p>Des tutoriels pas à pas, des astuces pour gagner du temps, des bons plans et d’autres sujets qui me passionnent.</p>
-    <p>Reviens régulièrement : de nouveaux articles arrivent bientôt.</p>`
-  },
   {
     slug: "5-astuces-economiser-batterie-telephone",
     titre: "5 astuces pour économiser la batterie de ton téléphone",
@@ -134,23 +143,47 @@ const ARTICLES = [
   }
 ];
 
-const CATS = ["Tech", "Tutoriels", "Astuces", "Bons plans", "Divers"];
+const CATS = ["Tech", "IA", "Argent en ligne", "Tutoriels", "Astuces", "Bons plans"];
+const SUBS = ["Cuisine", "Actualité", "Finance personnelle", "Religion", "Santé", "Sport"];
+const AD_AFTER = 900; /* pub après ~900 caractères (≈ 10 à 15 lignes) : change ce nombre si besoin */
+const AD = `<div class="ad-inline">Publicité<br>(Google AdSense plus tard)</div>`;
+
+/* Texte de présentation affiché sur l'accueil : modifie-le librement */
+const PROFIL = [
+  "Je suis Aziz Daya, passionné de technologie et de marketing digital. Je travaille aussi comme community manager et je crée des visuels publicitaires.",
+  "Sur ce blog, je partage des tutoriels, des astuces, des découvertes autour de l’IA et des idées pour gagner de l’argent en ligne, expliqués simplement."
+];
 
 const PAGES = {
   "a-propos": { titre: "À propos", html: `<p>AZIZ DAYA est un blog qui parle surtout de tech, avec des tutoriels, des astuces et des bons plans expliqués simplement.</p><p>Remplace ce texte par ta propre présentation : qui tu es, pourquoi tu écris, ce que les lecteurs y gagnent.</p>` },
-  "contact": { titre: "Contact", html: `<p>Une question, une suggestion, une collaboration ? Écris-moi :</p><p><a href="mailto:ton-email@exemple.com"><strong>ton-email@exemple.com</strong></a></p>` },
-  "confidentialite": { titre: "Politique de confidentialité", html: `<p>AZIZ DAYA respecte ta vie privée. Ce site peut utiliser des outils de mesure d’audience (comme Google Analytics) et, plus tard, de la publicité (comme Google AdSense). Ces services peuvent utiliser des cookies pour fonctionner.</p><p>Tu peux refuser ou supprimer les cookies dans les réglages de ton navigateur. Nous ne vendons aucune donnée personnelle.</p><p>Pour toute question, utilise la page Contact.</p>` }
+  "contact": { titre: "Contact", html: `<p>Une question, une suggestion, une collaboration ? Écris-moi :</p><p><a href="mailto:azizdaya183@gmail.com"><strong>azizdaya183@gmail.com</strong></a></p>` },
+  "confidentialite": { titre: "Politique de confidentialité", html: `<p>AZIZ DAYA respecte ta vie privée. Ce site peut utiliser des outils de mesure d’audience et de la publicité. Ces services peuvent utiliser des cookies pour fonctionner.</p><p>Tu peux refuser ou supprimer les cookies dans les réglages de ton navigateur. Nous ne vendons aucune donnée personnelle.</p><p>Pour toute question, utilise la page Contact.</p>` }
 };
 
 const app = document.getElementById("app");
 const nav = document.getElementById("nav");
 const fmt = d => new Date(d).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
 const sorted = [...ARTICLES].sort((a, b) => b.date.localeCompare(a.date));
+const enc = encodeURIComponent;
 
-const row = a => `<a class="row" href="#/article/${a.slug}"><span class="cat">${a.cat}</span><h3>${a.titre}</h3><p>${a.resume}</p><time>${fmt(a.date)}</time></a>`;
-const photo = `<div class="photo"><span>Ta photo ici</span><img src="photo.jpg" alt="Portrait de AZIZ DAYA" onerror="this.remove()"></div>`;
-const photoAbout = photo.replace('class="photo"','class="photo about"');
-const side = () => `<div class="rail"><div class="profile">${photo}<div class="txt"><h4>AZIZ DAYA</h4><p>Passionné de tech. Tutoriels, astuces et bons plans.</p></div></div><aside><h4>Catégories</h4>${CATS.map(c => `<a href="#/categorie/${encodeURIComponent(c)}">${c}</a>`).join("")}<div class="ad">Espace publicitaire<br>(Google AdSense plus tard)</div></aside></div>`;
+const thumb = a => `<div class="thumb"><span>${a.sub || a.cat}</span><img src="images/${a.slug}.jpg" alt="${a.titre}" loading="lazy" onerror="this.remove()"></div>`;
+const row = a => `<a class="row" href="#/article/${a.slug}">${thumb(a)}<div><span class="cat">${a.sub || a.cat}</span><h3>${a.titre}</h3><p>${a.resume}</p><time>${fmt(a.date)}</time></div></a>`;
+const side = () => `<aside><h4>Catégories</h4>${CATS.concat("Divers").map(c => `<a href="#/categorie/${enc(c)}">${c}</a>`).join("")}<div class="ad">Espace publicitaire<br>(Google AdSense plus tard)</div></aside>`;
+const subsBar = on => `<div class="subs">${SUBS.map(s => `<a href="#/divers/${enc(s)}" class="${s === on ? "on" : ""}">${s}</a>`).join("")}</div>`;
+const listOrEmpty = l => l.length ? l.map(row).join("") : "<p>Aucun article pour le moment.</p>";
+
+/* insère une petite pub après ~10 à 15 lignes de texte (jamais tout à la fin) */
+function withAd(html) {
+  const d = document.createElement("div");
+  d.innerHTML = html;
+  const k = [...d.children];
+  let n = 0;
+  for (let i = 0; i < k.length - 1; i++) {
+    n += k[i].textContent.length;
+    if (n >= AD_AFTER) { k[i].insertAdjacentHTML("afterend", AD); break; }
+  }
+  return d.innerHTML;
+}
 
 function setTitle(t) { document.title = t ? `${t} | AZIZ DAYA` : "AZIZ DAYA | Blog tech"; }
 
@@ -162,24 +195,42 @@ function route() {
     const a = ARTICLES.find(x => x.slug === val);
     if (a) {
       on = a.cat; setTitle(a.titre);
-      app.innerHTML = `<article><a class="back" href="#/">← Retour</a><div class="cat">${a.cat}</div><h1>${a.titre}</h1><time>${fmt(a.date)}</time><div class="prose">${a.contenu}</div></article>`;
+      app.innerHTML = `<article><a class="back" href="#/">← Retour</a><div class="cat">${a.sub ? a.cat + " / " + a.sub : a.cat}</div><h1>${a.titre}</h1><time>${fmt(a.date)}</time>${thumb(a)}<div class="prose">${withAd(a.contenu)}</div></article>`;
     } else notFound();
-  } else if (type === "categorie") {
+  } else if (type === "categorie" && (CATS.includes(val) || val === "Divers")) {
     on = val; setTitle(val);
     const list = sorted.filter(a => a.cat === val);
-    app.innerHTML = `<div class="cols"><section><h2 class="t">${val}</h2>${list.length ? list.map(row).join("") : "<p>Aucun article dans cette catégorie pour le moment.</p>"}</section>${side()}</div>`;
+    app.innerHTML = `<div class="cols"><section><h2 class="t">${val}</h2>${val === "Divers" ? subsBar("") : ""}${listOrEmpty(list)}</section>${side()}</div>`;
+  } else if (type === "divers" && SUBS.includes(val)) {
+    on = "Divers"; setTitle(val);
+    const list = sorted.filter(a => a.cat === "Divers" && a.sub === val);
+    app.innerHTML = `<div class="cols"><section><h2 class="t">Divers : ${val}</h2>${subsBar(val)}${listOrEmpty(list)}</section>${side()}</div>`;
   } else if (type === "page" && PAGES[val]) {
     setTitle(PAGES[val].titre);
-    app.innerHTML = `<article><a class="back" href="#/">← Retour</a><h1>${PAGES[val].titre}</h1>${val === "a-propos" ? photoAbout : ""}<div class="prose">${PAGES[val].html}</div></article>`;
+    app.innerHTML = `<article><a class="back" href="#/">← Retour</a><h1>${PAGES[val].titre}</h1><div class="prose">${PAGES[val].html}</div></article>`;
   } else if (!type) {
     on = "home"; setTitle("");
-    const [first, ...rest] = sorted;
-    app.innerHTML = `<a class="hero" href="#/article/${first.slug}"><span class="cat">${first.cat}</span><h1>${first.titre}</h1><p>${first.resume}</p><time>${fmt(first.date)}</time></a><div class="cols"><section><h2 class="t">Derniers articles</h2>${rest.map(row).join("")}</section>${side()}</div>`;
+    const main = sorted.filter(a => a.cat !== "Divers");
+    app.innerHTML = `<section class="hero"><div><h1>AZIZ DAYA</h1>${PROFIL.map(p => `<p>${p}</p>`).join("")}<a class="btn" href="#/page/contact">Me contacter</a></div><div class="photo"><span>Ta photo ici</span><img src="photo.jpg" alt="Portrait de AZIZ DAYA" onerror="this.remove()"></div></section><div class="cols"><section><h2 class="t">Derniers articles</h2>${listOrEmpty(main)}</section>${side()}</div>`;
   } else notFound();
-  nav.innerHTML = `<a href="#/" class="${on === "home" ? "on" : ""}">Accueil</a>` + CATS.map(c => `<a href="#/categorie/${encodeURIComponent(c)}" class="${on === c ? "on" : ""}">${c}</a>`).join("");
+  nav.innerHTML = `<a href="#/" class="${on === "home" ? "on" : ""}">Accueil</a>` + CATS.map(c => `<a href="#/categorie/${enc(c)}" class="${on === c ? "on" : ""}">${c}</a>`).join("") +
+    `<button type="button" class="ddbtn ${on === "Divers" ? "on" : ""}" aria-haspopup="true" aria-expanded="false">Divers ▾</button><div class="menu" id="menu"><a href="#/categorie/Divers">Tout Divers</a>${SUBS.map(s => `<a href="#/divers/${enc(s)}">${s}</a>`).join("")}</div>`;
   window.scrollTo(0, 0);
 }
 function notFound() { setTitle("Page introuvable"); app.innerHTML = `<article><h1>Page introuvable</h1><p><a href="#/">Retour à l’accueil</a></p></article>`; }
+
+/* liste déroulante Divers */
+nav.addEventListener("click", e => {
+  const b = e.target.closest(".ddbtn");
+  if (b) b.setAttribute("aria-expanded", document.getElementById("menu").classList.toggle("open"));
+});
+document.addEventListener("click", e => {
+  const m = document.getElementById("menu");
+  if (m && !e.target.closest(".ddbtn") && !e.target.closest(".menu")) {
+    m.classList.remove("open");
+    nav.querySelector(".ddbtn").setAttribute("aria-expanded", "false");
+  }
+});
 
 const btn = document.getElementById("theme");
 function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); btn.textContent = t === "dark" ? "Mode clair" : "Mode sombre"; }
