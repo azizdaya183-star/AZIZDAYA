@@ -44,7 +44,7 @@ main{padding:32px 0 56px;min-height:70vh}
 .cat{color:var(--acc);font-weight:700;font-size:.9rem}
 time{color:var(--mute);font-size:.9rem}
 .cols{display:grid;grid-template-columns:1fr 280px;gap:40px}
-.row{display:grid;grid-template-columns:168px 1fr;gap:18px;align-items:start;padding:20px 0;border-bottom:1px solid var(--line)}
+.row{display:grid;grid-template-columns:168px 1fr;gap:18px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
 .row h3{margin:2px 0;font-size:1.3rem;line-height:1.3}
 .row:hover h3{color:var(--acc)}
 .row p{margin:0 0 6px;color:var(--mute)}
@@ -102,8 +102,7 @@ footer a:hover{color:var(--acc)}
    juste en dessous du dernier (avec une virgule entre les deux)
    et change : slug, titre, cat, date, resume, contenu.
    - slug : sans espace ni accent (ex: "installer-whatsapp")
-   - cat  : Tech, IA, Argent en ligne, Tutoriels, Astuces,
-            Bons plans ou Divers
+   - cat  : Tech, IA, Tutoriels, Astuces, Bons plans ou Divers
    - sub  : UNIQUEMENT si cat est "Divers" : Cuisine, Actualité,
             Finance personnelle, Religion, Santé ou Sport
             (ajoute la ligne  sub: "Cuisine",  sous cat)
@@ -143,7 +142,7 @@ const ARTICLES = [
   }
 ];
 
-const CATS = ["Tech", "IA", "Argent en ligne", "Tutoriels", "Astuces", "Bons plans"];
+const CATS = ["Tech", "IA", "Tutoriels", "Astuces", "Bons plans"];
 const SUBS = ["Cuisine", "Actualité", "Finance personnelle", "Religion", "Santé", "Sport"];
 const AD_AFTER = 900; /* pub après ~900 caractères (≈ 10 à 15 lignes) : change ce nombre si besoin */
 const AD = `<div class="ad-inline">Publicité<br>(Google AdSense plus tard)</div>`;
@@ -167,7 +166,7 @@ const sorted = [...ARTICLES].sort((a, b) => b.date.localeCompare(a.date));
 const enc = encodeURIComponent;
 
 const thumb = a => `<div class="thumb"><span>${a.sub || a.cat}</span><img src="images/${a.slug}.jpg" alt="${a.titre}" loading="lazy" onerror="this.remove()"></div>`;
-const row = a => `<a class="row" href="#/article/${a.slug}">${thumb(a)}<div><span class="cat">${a.sub || a.cat}</span><h3>${a.titre}</h3><p>${a.resume}</p><time>${fmt(a.date)}</time></div></a>`;
+const row = a => `<a class="row" href="#/article/${a.slug}">${thumb(a)}<h3>${a.titre}</h3></a>`;
 const side = () => `<aside><h4>Catégories</h4>${CATS.concat("Divers").map(c => `<a href="#/categorie/${enc(c)}">${c}</a>`).join("")}<div class="ad">Espace publicitaire<br>(Google AdSense plus tard)</div></aside>`;
 const subsBar = on => `<div class="subs">${SUBS.map(s => `<a href="#/divers/${enc(s)}" class="${s === on ? "on" : ""}">${s}</a>`).join("")}</div>`;
 const listOrEmpty = l => l.length ? l.map(row).join("") : "<p>Aucun article pour le moment.</p>";
