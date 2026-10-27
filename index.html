@@ -111,7 +111,7 @@ nav>a.on,nav>.ddbtn.on{border-color:var(--acc)}}
             (ajoute la ligne  sub: "Cuisine",  sous cat)
    - date : AAAA-MM-JJ
    - MINIATURE : mets une image nommée comme le slug dans le
-     dossier "images" (ex: images/installer-whatsapp.jpg).
+     à la racine du site (ex: installer-whatsapp.jpg).
      Sans image, un fond bleu avec la catégorie s'affiche.
    - Les articles "Divers" n'apparaissent jamais dans
      "Derniers articles" de l'accueil.
@@ -146,7 +146,7 @@ const ARTICLES = [
     <h2>Pour qui est-ce intéressant ?</h2>
     <p>Pour les créateurs débutants qui n’atteignent pas encore les seuils de monétisation des plateformes. Par exemple, le programme de récompenses de TikTok n’est pas encore ouvert dans la plupart des pays africains. Promote paie à la vue sans minimum d’abonnés, mais seulement si ton pays est pris en charge.</p>
     <h2>Notre verdict</h2>
-    <p>Promote est une piste à tester avec prudence, comme un revenu complémentaire et non comme un salaire. Les petits gains, les frais de retrait et le seuil de 100 $ demandent de la patience. Si tu veux aussi diversifier, tu peux combiner cette piste avec un blog et d’autres sources de revenus, comme celles que je présente dans mon guide sur <a href="/articles/gagner-argent-afrique-weelify.html">Weelify</a>.</p>
+    <p>Promote est une piste à tester avec prudence, comme un revenu complémentaire et non comme un salaire. Les petits gains, les frais de retrait et le seuil de 100 $ demandent de la patience. Si tu veux aussi diversifier, tu peux combiner cette piste avec un blog et d’autres sources de revenus, comme celles que je présente dans mon guide sur <a href="/gagner-argent-afrique-weelify.html">Weelify</a>.</p>
     <p><em>Informations issues du site officiel de Promote, consultées le 25 octobre 2026. Les conditions peuvent changer.</em></p>`
   },
   {
@@ -1143,7 +1143,7 @@ const ARTICLES = [
     <h2>L’originalité n’est pas négociable</h2>
     <p>Certains conseillent de récupérer les vidéos des autres, de les modifier légèrement et d’y ajouter une voix pour tromper l’algorithme. Je te le déconseille. TikTok ne rémunère que les contenus originaux, les reprises sont exclues, et réutiliser le travail d’autrui peut entraîner des signalements pour droits d’auteur. Crée ton propre contenu, avec tes mots, tes images ou des éléments dont tu as les droits.</p>
     <h2>Si tu n’es pas dans un pays éligible</h2>
-    <p>Utilise TikTok comme vitrine. Une audience engagée peut te rapporter via des partenariats avec des marques, la vente de tes propres produits digitaux, des services ou en redirigeant tes abonnés vers d’autres plateformes. Tu peux aussi poster tes vidéos sur YouTube, dont les conditions de monétisation sont plus accessibles. Et si tu partages des ressources utiles à ta communauté, regarde mon guide sur <a href="/articles/gagner-argent-afrique-weelify.html">Weelify</a>.</p>
+    <p>Utilise TikTok comme vitrine. Une audience engagée peut te rapporter via des partenariats avec des marques, la vente de tes propres produits digitaux, des services ou en redirigeant tes abonnés vers d’autres plateformes. Tu peux aussi poster tes vidéos sur YouTube, dont les conditions de monétisation sont plus accessibles. Et si tu partages des ressources utiles à ta communauté, regarde mon guide sur <a href="/gagner-argent-afrique-weelify.html">Weelify</a>.</p>
     <h2>Ton plan d’action</h2>
     <p>Vérifie d’abord si ton pays est éligible. Choisis une niche que tu aimes et que tu peux alimenter longtemps. Écris tes scripts, publie régulièrement, vise les 10 000 abonnés avec des vidéos de qualité, puis analyse tes statistiques. Aucun résultat n’est garanti, mais une méthode claire, de la régularité et de l’originalité te donnent bien plus de chances que les raccourcis.</p>`
   },
@@ -1321,8 +1321,8 @@ const fmt = d => new Date(d).toLocaleDateString("fr-FR", { day: "numeric", month
 const sorted = [...ARTICLES].sort((a, b) => b.date.localeCompare(a.date));
 const enc = encodeURIComponent;
 
-const thumb = a => `<div class="thumb"><span>${a.sub || a.cat}</span><img src="images/${a.slug}.jpg" alt="${a.titre}" loading="lazy" onerror="this.remove()"></div>`;
-const row = a => `<a class="row" href="articles/${a.slug}.html">${thumb(a)}<h3>${a.titre}</h3></a>`;
+const thumb = a => `<div class="thumb"><span>${a.sub || a.cat}</span><img src="${a.slug}.jpg" alt="${a.titre}" loading="lazy" onerror="this.remove()"></div>`;
+const row = a => `<a class="row" href="${a.slug}.html">${thumb(a)}<h3>${a.titre}</h3></a>`;
 const side = () => `<aside><h4>Catégories</h4>${CATS.concat("Divers").map(c => `<a href="#/categorie/${enc(c)}">${c}</a>`).join("")}<div class="ad">Espace publicitaire<br>(Google AdSense plus tard)</div></aside>`;
 const subsBar = on => `<div class="subs">${SUBS.map(s => `<a href="#/divers/${enc(s)}" class="${s === on ? "on" : ""}">${s}</a>`).join("")}</div>`;
 const listOrEmpty = l => l.length ? l.map(row).join("") : "<p>Aucun article pour le moment.</p>";
