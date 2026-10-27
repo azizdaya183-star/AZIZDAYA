@@ -2,6 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AZIZ DAYA | Blog tech</title>
 <meta name="description" content="AZIZ DAYA : actualités tech, IA, argent en ligne, tutoriels et astuces simples pour téléphone, PC et internet.">
@@ -1241,7 +1243,7 @@ const ARTICLES = [
     <p><strong>Comment retirer mes gains ?</strong> En mobile money ou par virement bancaire, selon ce que propose la plateforme.</p>
     <h2>Conclusion</h2>
     <p>Weelify offre une porte d’entrée simple pour monétiser ce que tu partages déjà. Crée ton compte avec mon lien pour recevoir tes 2 $ offerts dès ta première recharge, ajoute une première ressource utile, partage-la intelligemment et observe tes résultats pendant quelques semaines avant de t’engager davantage.</p>
-    <p><a class="btn" href="${https://weelify.com/r/v8czfv75}" target="_blank" rel="sponsored noopener">Créer mon compte Weelify</a></p>`
+    <p><a class="btn" href="${LIEN_WEELIFY}" target="_blank" rel="sponsored noopener">Créer mon compte Weelify</a></p>`
   },
   {
     slug: "clickup-brain-claude-gpt-gemini-gratuit",
@@ -1398,17 +1400,20 @@ document.getElementById("yr").textContent = new Date().getFullYear();
 window.addEventListener("hashchange", route);
 route();
 </script>
-  <script>
+<script>
 (function(){
   var s=document.createElement("style");
-  s.textContent="header nav{transition:max-height .3s ease,opacity .3s ease,padding .3s ease;max-height:300px}header.nav-hidden nav{max-height:0;opacity:0;padding-bottom:0;overflow:hidden;pointer-events:none}";
+  s.textContent="header{transition:transform .3s ease}header.nav-hidden{transform:translateY(-100%)}";
   document.head.appendChild(s);
-  var h=document.querySelector("header"),last=window.scrollY;
+  var h=document.querySelector("header"),last=window.scrollY,tick=false;
   window.addEventListener("scroll",function(){
-    var y=window.scrollY;
-    if(y>last+8&&y>80){h.classList.add("nav-hidden");}
-    else if(y<last-8||y<=80){h.classList.remove("nav-hidden");}
-    last=y;
+    if(tick)return;tick=true;
+    requestAnimationFrame(function(){
+      var y=Math.max(0,window.scrollY);
+      if(y>last+10&&y>120){h.classList.add("nav-hidden");last=y;}
+      else if(y<last-10||y<=120){h.classList.remove("nav-hidden");last=y;}
+      tick=false;
+    });
   },{passive:true});
 })();
 </script>
