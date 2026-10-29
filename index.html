@@ -6,7 +6,6 @@
 <link rel="apple-touch-icon" href="/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AZIZ DAYA | Blog tech</title>
-<meta name="msvalidate.01" content="D40A2DB095F76C2811F393327496D95B" />
 <meta name="description" content="AZIZ DAYA : actualités tech, IA, argent en ligne, tutoriels et astuces simples pour téléphone, PC et internet.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Serif+4:wght@400;600&display=swap">
@@ -83,6 +82,8 @@ nav>a,nav>.ddbtn{display:block;text-align:center;padding:7px 2px;font-size:.82re
 nav>a.on,nav>.ddbtn.on{border-color:var(--acc)}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1265669606017358"
+     crossorigin="anonymous"></script>
 </head>
 <body>
 <header>
@@ -1304,7 +1305,7 @@ const ARTICLES = [
 const CATS = ["Tech", "IA", "Tutoriels", "Astuces", "Bons plans"];
 const SUBS = ["Cuisine", "Finance personnelle", "Religion", "Santé", "Sport", "Musique"];
 const AD_AFTER = 900; /* pub après ~900 caractères (≈ 10 à 15 lignes) : change ce nombre si besoin */
-const AD = `<div class="ad-inline">Publicité<br>(Google AdSense plus tard)</div>`;
+const AD = `<div class="ad-inline">Publicité</div>`;
 
 /* Texte de présentation affiché sur l'accueil : modifie-le librement */
 const PROFIL = [
@@ -1326,7 +1327,7 @@ const enc = encodeURIComponent;
 
 const thumb = a => `<div class="thumb"><span>${a.sub || a.cat}</span><img src="${a.slug}.jpg" alt="${a.titre}" loading="lazy" onerror="this.remove()"></div>`;
 const row = a => `<a class="row" href="${a.slug}.html">${thumb(a)}<h3>${a.titre}</h3></a>`;
-const side = () => `<aside><h4>Catégories</h4>${CATS.concat("Divers").map(c => `<a href="#/categorie/${enc(c)}">${c}</a>`).join("")}<div class="ad">Espace publicitaire<br>(Google AdSense plus tard)</div></aside>`;
+const side = () => `<aside><h4>Catégories</h4>${CATS.concat("Divers").map(c => `<a href="#/categorie/${enc(c)}">${c}</a>`).join("")}<div class="ad">Publicité</div></aside>`;
 const subsBar = on => `<div class="subs">${SUBS.map(s => `<a href="#/divers/${enc(s)}" class="${s === on ? "on" : ""}">${s}</a>`).join("")}</div>`;
 const listOrEmpty = l => l.length ? l.map(row).join("") : "<p>Aucun article pour le moment.</p>";
 
